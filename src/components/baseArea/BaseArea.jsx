@@ -24,7 +24,7 @@ export default class BaseArea extends Component {
                         <span className="stack_side_by_side" key={i}>  
                             {
                                 baseRow.filter(cellItem => cellItem !==undefined).map(
-                                    CellItemId => <ClickableCell onBoxClick={this.boxClicked} key={CellItemId} cellId={CellItemId}/>
+                                    CellItemId => <ClickableCell boxesToFill={this.state.filledBoxes} playerFlag={this.state.playerTurnFlag} onBoxClick={this.boxClicked} key={CellItemId} cellId={CellItemId}/>
                                 )
                             }
                         </span>
@@ -36,7 +36,10 @@ export default class BaseArea extends Component {
 
     boxClicked(cellId) {
         let filledBoxes = this.state.filledBoxes;
-        filledBoxes.push(cellId);
+        filledBoxes.push({
+            cellId: cellId,
+            playerFlag: this.state.playerTurnFlag
+        });
         this.setState({
             filledBoxes: filledBoxes,
             playerTurnFlag: !this.state.playerTurnFlag

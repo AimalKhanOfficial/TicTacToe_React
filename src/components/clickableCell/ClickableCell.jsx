@@ -9,9 +9,11 @@ export default class ClickableCell extends Component {
     }
 
     render(){
+        let wasBoxFilled = this.props.boxesToFill.find(elem => elem.cellId === this.props.cellId ? elem : undefined);
+        console.log(wasBoxFilled);
         return (
             <button onClick={this.onCellClicked} className="cell_layout">
-                {this.props.cellId}
+                {wasBoxFilled !== undefined ? !wasBoxFilled.playerFlag ? "X" : "O" : ""}
             </button>
         );
     }

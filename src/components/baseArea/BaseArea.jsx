@@ -19,6 +19,9 @@ export default class BaseArea extends Component {
         let baseAreaCells = this.props.baseAreaCells ? this.props.baseAreaCells : [];
         return (
             <div className="base">
+                <h3 className="coolFontType">
+                    {!this.state.playerTurnFlag ? "Player 1 to play.." : "Player 2 to play.."}
+                </h3>
                 {
                     baseAreaCells.filter(row => row !== undefined && Array.isArray(row)).map((baseRow, i) => 
                         <span className="stack_side_by_side" key={i}>  

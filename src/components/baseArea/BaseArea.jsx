@@ -1,10 +1,15 @@
 import React, {Component} from "react";
 import ClickableCell from "../clickableCell/ClickableCell";
 
+const initialState = { 
+    filledBoxes: []
+}
+
 export default class BaseArea extends Component {
 
     constructor(){
         super();
+        this.state = initialState;
         this.boxClicked = this.boxClicked.bind(this);
     }
 
@@ -24,6 +29,10 @@ export default class BaseArea extends Component {
     }
 
     boxClicked(cellId) {
-        alert(cellId);
+        let filledBoxes = this.state.filledBoxes;
+        filledBoxes.push(cellId);
+        this.setState({
+            filledBoxes: filledBoxes
+        });
     }
 }

@@ -6,7 +6,11 @@ export default class BaseArea extends Component {
         return (
             <div>
                 {
-                    baseAreaCells.map((BaseRow, i) => BaseRow.map(CellItemId => <span key={CellItemId}>{CellItemId}</span>))
+                    baseAreaCells.filter(row => row !== undefined && Array.isArray(row)).map((baseRow, i) => 
+                        baseRow.filter(cellItem => cellItem !==undefined).map(
+                            CellItemId => <span key={CellItemId}>{CellItemId}</span>
+                        )
+                    )
                 }
             </div>
         );

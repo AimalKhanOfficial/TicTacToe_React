@@ -4,7 +4,7 @@ import BaseArea from './BaseArea';
 import '../../../EnzymeSetup'
 
 it('Base Area should have some text', () => {
-    let baseAreaWrapper = shallow(<BaseArea baseAreaCells={[1, 2, 3]}/>);
+    let baseAreaWrapper = shallow(<BaseArea baseAreaCells={[[1]]}/>);
     expect(baseAreaWrapper.text().length).toBeGreaterThan(0);
 })
 

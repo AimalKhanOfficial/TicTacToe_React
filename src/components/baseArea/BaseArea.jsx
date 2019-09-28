@@ -45,7 +45,10 @@ export default class BaseArea extends Component {
     }
 
     setGameDefaults() {
-        
+        this.setState({
+            filledBoxes: [],
+            playerTurnFlag: false, 
+        });
     }
 
     undoMove(){

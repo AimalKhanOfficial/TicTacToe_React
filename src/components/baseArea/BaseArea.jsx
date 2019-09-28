@@ -1,3 +1,4 @@
+import "./BaseArea.css";
 import React, {Component} from "react";
 import ClickableCell from "../clickableCell/ClickableCell";
 
@@ -16,12 +17,16 @@ export default class BaseArea extends Component {
     render() {
         let baseAreaCells = this.props.baseAreaCells ? this.props.baseAreaCells : [];
         return (
-            <div>
+            <div className="base">
                 {
                     baseAreaCells.filter(row => row !== undefined && Array.isArray(row)).map((baseRow, i) => 
-                        baseRow.filter(cellItem => cellItem !==undefined).map(
-                            CellItemId => <ClickableCell onBoxClick={this.boxClicked} key={CellItemId} cellId={CellItemId}/>
-                        )
+                        <span className="stack_side_by_side" key={i}>  
+                            {
+                                baseRow.filter(cellItem => cellItem !==undefined).map(
+                                    CellItemId => <ClickableCell onBoxClick={this.boxClicked} key={CellItemId} cellId={CellItemId}/>
+                                )
+                            }
+                        </span>
                     )
                 }
             </div>

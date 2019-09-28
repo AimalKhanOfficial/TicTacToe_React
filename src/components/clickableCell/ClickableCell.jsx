@@ -1,3 +1,4 @@
+import "./ClickableCell.css";
 import React, {Component} from "react";
 
 export default class ClickableCell extends Component {
@@ -9,7 +10,7 @@ export default class ClickableCell extends Component {
 
     render(){
         return (
-            <button onClick={this.onCellClicked}>
+            <button onClick={this.onCellClicked} className="cell_layout">
                 {this.props.cellId}
             </button>
         );

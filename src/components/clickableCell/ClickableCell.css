@@ -1,0 +1,10 @@
+.cell_layout {
+    padding: 5px;
+    height: 52px;
+    width: 75px;
+    font-size: 30px;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin: 0px;
+    background-color: #fff;
+}

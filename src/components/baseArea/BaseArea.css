@@ -1,0 +1,13 @@
+.base {
+    margin-left: auto; 
+    margin-right: auto; 
+    max-width: 190px; 
+    border: 1px solid;
+    padding: 50px;
+    margin-top: 20px;
+}
+
+.stack_side_by_side {
+    display: flex;
+    margin-top: 1px;
+}

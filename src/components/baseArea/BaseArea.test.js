@@ -11,3 +11,7 @@ it('Base Area should have some text', () => {
 it('Base Area prop with undefined props should not fail', () => {
     expect(() => shallow(<BaseArea />)).not.toThrowError();
 })
+
+it('Base Area prop having a nested array with undefined should not Throw Error', () => {
+    expect(() => shallow(<BaseArea baseAreaCells={[ undefined ]}/>)).not.toThrowError();
+})

@@ -14,6 +14,7 @@ export default class BaseArea extends Component {
         this.state = initialState;
         this.boxClicked = this.boxClicked.bind(this);
         this.undoMove = this.undoMove.bind(this);
+        this.setGameDefaults = this.setGameDefaults.bind(this);
     }
 
     render() {
@@ -22,6 +23,7 @@ export default class BaseArea extends Component {
             <div className="base">
                 <div className="stack_side_by_side">          
                     <img src="/imgs/refresh.png" alt="avatar" className="avatar" title="Undo move" onClick={this.undoMove}/>
+                    <img src="/imgs/restart.png" alt="avatar" className="avatar" title="Start Over" onClick={this.setGameDefaults}/>
                 </div>
                 <br/>
                 <h3>
@@ -40,6 +42,10 @@ export default class BaseArea extends Component {
                 }
             </div>
         );
+    }
+
+    setGameDefaults() {
+        
     }
 
     undoMove(){

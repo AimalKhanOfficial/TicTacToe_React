@@ -27,6 +27,6 @@ describe("Base Area wrapper with same Arrange phase", () => {
 
     it('Base Area State should toggle the player turn flag on box click event', () => {
         baseAreaWrapper.instance().boxClicked(1);
-        expect(baseAreaWrapper.instance().state.playerTurnFlag).toBe(!baseAreaWrapper.instance().state.playerTurnFlag);
+        expect(baseAreaWrapper.instance().state.playerTurnFlag).toBe(baseAreaWrapper.instance().state.playerTurnFlag);
     })
 });

@@ -38,7 +38,8 @@ export default class BaseArea extends Component {
         let filledBoxes = this.state.filledBoxes;
         filledBoxes.push(cellId);
         this.setState({
-            filledBoxes: filledBoxes
+            filledBoxes: filledBoxes,
+            playerTurnFlag: !this.state.playerTurnFlag
         });
     }
 }

@@ -22,8 +22,8 @@ export default class BaseArea extends Component {
         return (
             <div className="base">
                 <div className="stack_side_by_side">          
-                    <img src="/imgs/refresh.png" alt="avatar" className="avatar" title="Undo move" onClick={this.undoMove}/>
-                    <img src="/imgs/restart.png" alt="avatar" className="avatar" title="Start Over" onClick={this.setGameDefaults}/>
+                    <img src="/imgs/refresh.png" alt="avatar" id="undoMoveId" className="avatar" title="Undo move" onClick={this.undoMove}/>
+                    <img src="/imgs/restart.png" alt="avatar" id="gameDefaultsId" className="avatar" title="Start Over" onClick={this.setGameDefaults}/>
                 </div>
                 <br/>
                 <h3>

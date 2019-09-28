@@ -35,4 +35,9 @@ describe("Base Area wrapper with same Arrange phase", () => {
         baseAreaWrapper.instance().undoMove();
         expect(filledBoxesLength - 1).toBe(baseAreaWrapper.instance().state.filledBoxes.length);
     })
+
+    it('The state should be set to default on the Start Over img click event', () => {
+        baseAreaWrapper.find('#gameDefaultsId').simulate('click');
+        expect(baseAreaWrapper.instance().state.filledBoxes.length).toBe(0);
+    })
 });

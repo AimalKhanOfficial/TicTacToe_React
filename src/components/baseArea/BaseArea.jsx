@@ -6,7 +6,7 @@ export default class BaseArea extends Component {
         return (
             <div>
                 {
-                    baseAreaCells.map((item, i) => item)
+                    baseAreaCells.map((BaseRow, i) => BaseRow.map(CellItemId => <span key={CellItemId}>{CellItemId}</span>))
                 }
             </div>
         );

@@ -16,6 +16,6 @@ export default class ClickableCell extends Component {
     }
 
     onCellClicked(){
-        this.props.onBoxClick(this.props.id);
+        this.props.onBoxClick(this.props.cellId);
     }
 }

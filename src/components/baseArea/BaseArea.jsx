@@ -2,6 +2,12 @@ import React, {Component} from "react";
 import ClickableCell from "../clickableCell/ClickableCell";
 
 export default class BaseArea extends Component {
+
+    constructor(){
+        super();
+        this.boxClicked = this.boxClicked.bind(this);
+    }
+
     render() {
         let baseAreaCells = this.props.baseAreaCells ? this.props.baseAreaCells : [];
         return (
@@ -9,11 +15,15 @@ export default class BaseArea extends Component {
                 {
                     baseAreaCells.filter(row => row !== undefined && Array.isArray(row)).map((baseRow, i) => 
                         baseRow.filter(cellItem => cellItem !==undefined).map(
-                            CellItemId => <ClickableCell key={CellItemId} cellId={CellItemId}/>
+                            CellItemId => <ClickableCell onBoxClick={this.boxClicked} key={CellItemId} cellId={CellItemId}/>
                         )
                     )
                 }
             </div>
         );
+    }
+
+    boxClicked(cellId) {
+        alert(cellId);
     }
 }

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import ClickableCell from "../clickableCell/ClickableCell";
 
 export default class BaseArea extends Component {
     render() {
@@ -8,7 +9,7 @@ export default class BaseArea extends Component {
                 {
                     baseAreaCells.filter(row => row !== undefined && Array.isArray(row)).map((baseRow, i) => 
                         baseRow.filter(cellItem => cellItem !==undefined).map(
-                            CellItemId => <span key={CellItemId}>{CellItemId}</span>
+                            CellItemId => <ClickableCell key={CellItemId} cellId={CellItemId}/>
                         )
                     )
                 }

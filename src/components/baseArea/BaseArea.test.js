@@ -16,8 +16,17 @@ it('Base Area prop having a nested array with undefined should not Throw Error',
     expect(() => shallow(<BaseArea baseAreaCells={[ undefined ]}/>)).not.toThrowError();
 })
 
-it('Base Area State should maintain a record of which box was clicked', () => {
-    let baseAreaWrapper = shallow(<BaseArea baseAreaCells={[[1]]}/>);
-    baseAreaWrapper.instance().boxClicked(1);
-    expect(baseAreaWrapper.instance().state.filledBoxes.length).toBeGreaterThan(0);
-})
+describe("Base Area wrapper with same Arrange phase", () => {
+    let baseAreaWrapper;
+    beforeEach(() => baseAreaWrapper = shallow(<BaseArea baseAreaCells={[[1]]}/>));
+    
+    it('Base Area State should maintain a record of which box was clicked', () => {
+        baseAreaWrapper.instance().boxClicked(1);
+        expect(baseAreaWrapper.instance().state.filledBoxes.length).toBeGreaterThan(0);
+    })
+
+    it('Base Area State should toggle the player turn flag on box click event', () => {
+        baseAreaWrapper.instance().boxClicked(1);
+        expect(baseAreaWrapper.instance().state.playerTurnFlag).toBe(!baseAreaWrapper.instance().state.playerTurnFlag);
+    })
+});

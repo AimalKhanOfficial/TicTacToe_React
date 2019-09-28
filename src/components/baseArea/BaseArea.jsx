@@ -3,7 +3,8 @@ import React, {Component} from "react";
 import ClickableCell from "../clickableCell/ClickableCell";
 
 const initialState = { 
-    filledBoxes: []
+    filledBoxes: [],
+    playerTurnFlag: false, 
 }
 
 export default class BaseArea extends Component {

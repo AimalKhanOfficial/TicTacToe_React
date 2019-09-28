@@ -11,3 +11,8 @@
     display: flex;
     margin-top: 1px;
 }
+
+.avatar {
+    height: 90px;
+    width: 90px;
+}

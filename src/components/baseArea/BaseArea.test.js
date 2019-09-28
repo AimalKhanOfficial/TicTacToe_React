@@ -29,4 +29,10 @@ describe("Base Area wrapper with same Arrange phase", () => {
         baseAreaWrapper.instance().boxClicked(1);
         expect(baseAreaWrapper.instance().state.playerTurnFlag).toBe(baseAreaWrapper.instance().state.playerTurnFlag);
     })
+
+    it('Base Area State should remove an item from player moves array on UndoMove click event', () => {
+        let filledBoxesLength = baseAreaWrapper.instance().state.filledBoxes.length;
+        baseAreaWrapper.instance().undoMove();
+        expect(filledBoxesLength - 1).toBe(baseAreaWrapper.instance().state.filledBoxes.length);
+    })
 });

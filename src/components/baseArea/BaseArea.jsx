@@ -13,13 +13,18 @@ export default class BaseArea extends Component {
         super();
         this.state = initialState;
         this.boxClicked = this.boxClicked.bind(this);
+        this.undoMove = this.undoMove.bind(this);
     }
 
     render() {
         let baseAreaCells = this.props.baseAreaCells ? this.props.baseAreaCells : [];
         return (
             <div className="base">
-                <h3 className="coolFontType">
+                <div className="stack_side_by_side">          
+                    <img src="/imgs/refresh.png" alt="avatar" className="avatar" title="Undo move" onClick={this.undoMove}/>
+                </div>
+                <br/>
+                <h3>
                     {!this.state.playerTurnFlag ? "Player 1 to play.." : "Player 2 to play.."}
                 </h3>
                 {
@@ -35,6 +40,9 @@ export default class BaseArea extends Component {
                 }
             </div>
         );
+    }
+
+    undoMove(){
     }
 
     boxClicked(cellId) {

@@ -2,9 +2,12 @@ import React, {Component} from "react";
 
 export default class BaseArea extends Component {
     render() {
+        let baseAreaCells = this.props.baseAreaCells;
         return (
             <div>
-                {this.props.baseAreaCells}
+                {
+                    baseAreaCells.map((item, i) => item)
+                }
             </div>
         );
     }

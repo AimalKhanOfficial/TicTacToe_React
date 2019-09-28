@@ -5,7 +5,7 @@ import BaseArea from './components/baseArea/BaseArea';
 function App() {
   return (
     <div className="App">
-      <BaseArea baseAreaCells="Example Text"/>
+      <BaseArea baseAreaCells={[1, 2, 3]}/>
     </div>
   );
 }

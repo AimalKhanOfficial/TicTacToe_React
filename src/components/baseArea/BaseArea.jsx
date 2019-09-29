@@ -54,12 +54,13 @@ export default class BaseArea extends Component {
         this.setState({
             filledBoxes: [],
             playerTurnFlag: false, 
-            isGameFinished: false
+            isGameFinished: false,
+            isGameTied: false
         });
     }
 
     undoMove(){
-        if(!this.state.isGameFinished){
+        if(!this.state.isGameFinished && !this.state.isGameTied){
             let allMoves = this.state.filledBoxes;
             if(allMoves.length > 0){
               allMoves.pop();

@@ -84,6 +84,12 @@ export default class BaseArea extends Component {
             popUpBodyText: "",
             popUpImage: "",
         });
+
+        this.setState({
+            isPopUpVisible: true,
+            popUpImage: Constants.emojiGifTypes.GameRefreshed,
+            popUpBodyText: "Game's refreshed!"
+        });
     }
 
     undoMove(){

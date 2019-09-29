@@ -53,6 +53,7 @@ export default class BaseArea extends Component {
         this.setState({
             filledBoxes: [],
             playerTurnFlag: false, 
+            isGameFinished: false
         });
     }
 

@@ -53,4 +53,17 @@ describe('Base Area wrapper to check state for game status i.e. finished/tied et
         });
         expect(baseAreaWrapper.text()).toMatch(/Game Over/);
     });
+
+    it('When isGameFinished attribute is set to true, the undoMove button should not let user undo moves.', () => {
+        baseAreaWrapper.instance().setState({
+            isGameFinished: true,
+            filledBoxes: [{
+                cellId: 11,
+                playerFlag: true
+            }]
+        });
+        let filledBoxesCount = baseAreaWrapper.instance().state.filledBoxes.length;
+        baseAreaWrapper.instance().undoMove();
+        expect(filledBoxesCount).toBe(baseAreaWrapper.instance().state.filledBoxes.length);
+    });
 });

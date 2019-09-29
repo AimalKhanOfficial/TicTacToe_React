@@ -66,4 +66,13 @@ describe('Base Area wrapper to check state for game status i.e. finished/tied et
         baseAreaWrapper.instance().undoMove();
         expect(filledBoxesCount).toBe(baseAreaWrapper.instance().state.filledBoxes.length);
     });
+
+    it('When isGameFinished attribute is set to true, the boxClicked event should not add more entries to filledBoxes.', () => {
+        baseAreaWrapper.instance().setState({
+            isGameFinished: true
+        });
+        let filledBoxesCount = baseAreaWrapper.instance().state.filledBoxes.length;
+        baseAreaWrapper.instance().boxClicked(12);
+        expect(filledBoxesCount).toBe(baseAreaWrapper.instance().state.filledBoxes.length);
+    });
 });

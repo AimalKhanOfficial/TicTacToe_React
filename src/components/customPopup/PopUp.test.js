@@ -17,3 +17,10 @@ it('PopUp Component with image should display a default image if expression imag
     let popUpWrapper = shallow(<PopUp isVisible={false}/>);
     expect(popUpWrapper.find('#expression_image').prop('src')).toEqual('/imgs/' + defaultUserImage);
 })
+
+it('PopUp Component close button onClick should respond to click event', () => {
+    const fnClick = jest.fn();
+    let popUpWrapper = shallow(<PopUp closePopUp={fnClick}/>);
+    popUpWrapper.find('button').simulate('click');
+    expect(fnClick).toHaveBeenCalled();
+})

@@ -7,6 +7,7 @@ const initialState = {
     filledBoxes: [],
     playerTurnFlag: false, 
     isGameFinished: false,
+    isGameTied: false,
     playerOneWins: 0, 
     playerTwoWins: 0, 
     ties: 0

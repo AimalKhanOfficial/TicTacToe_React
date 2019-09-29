@@ -2,6 +2,12 @@ import React, {Component} from "react";
 import './PopUp.css';
 
 export default class PopUp extends Component {
+
+    constructor(props){
+        super(props);
+        this.closePopUp = this.closePopUp.bind(this);
+    }    
+
     render(){
       return (
         <div className='popup_body' id='popup_container' style={{display: this.props.isVisible ? 'block' : 'none'}}>
@@ -10,9 +16,13 @@ export default class PopUp extends Component {
               {this.props.body}
             </div>
             <div>
-              <button className="btn_close">Close</button>
+              <button className="btn_close" onClick={this.closePopUp}>Close</button>
             </div>
         </div>
         );
+    }
+
+    closePopUp() {
+        this.props.closePopUp();
     }
 }

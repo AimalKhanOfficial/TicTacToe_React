@@ -32,7 +32,7 @@ export default class BaseArea extends Component {
                 </div>
                 <br/>
                 <h3>
-                    {!this.state.playerTurnFlag ? "Player 1 to play.." : "Player 2 to play.."}
+                    {!this.state.isGameFinished ? (!this.state.playerTurnFlag ? "Player 1 to play.." : "Player 2 to play..")  : "Game Over!"}
                 </h3>
                 {
                     baseAreaCells.filter(row => row !== undefined && Array.isArray(row)).map((baseRow, i) => 
@@ -75,8 +75,15 @@ export default class BaseArea extends Component {
         });
         this.setState({
             filledBoxes: filledBoxes,
-            playerTurnFlag: !this.state.playerTurnFlag
+            isGameFinished: checkResult(this.state.filledBoxes, this.state.playerTurnFlag, this.props.winningPatterns)
+          }, () => {
+            if(this.state.isGameFinished) {
+            }
+            else {
+              this.setState({
+                playerTurnFlag: !this.state.playerTurnFlag,
+              });
+            }
         });
-        checkResult(filledBoxes, this.state.playerTurnFlag, this.props.winningPatterns);
     }
 }

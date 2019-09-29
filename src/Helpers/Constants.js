@@ -8,4 +8,11 @@ export default class Constants {
         [11, 12, 13], [21, 22, 23], [31, 32, 33],
         [11, 22, 33], [31, 22, 13]
     ];
+
+    static emojiGifTypes = {
+        Hurrah: "/imgs/hurrah.gif",
+        GameTied: "/imgs/tied.gif",
+        ChooseAnotherBox: "/imgs/thinking.gif",
+        GameRefreshed: "/imgs/Whistle.gif"
+    }
 }

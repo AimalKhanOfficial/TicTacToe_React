@@ -1,0 +1,20 @@
+.popup_body {
+    height: 300px;
+    width: 600px;
+    border: 1px solid;
+    margin-top: 10px;
+    margin-left: -210px;
+    text-align: center;
+    position: fixed;  
+    background-color: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn_close {
+    border-radius: 15px;
+    margin-top: 20px;
+    background-color: lightgreen;
+}

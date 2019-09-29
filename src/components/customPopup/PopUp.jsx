@@ -1,7 +1,17 @@
 import React, {Component} from "react";
+import './PopUp.css';
 
 export default class PopUp extends Component {
     render(){
-      throw "Random Err!";
+      return (
+        <div className="popup_body">
+            <div>
+                Example Text
+            </div>
+            <div>
+              <button className="btn_close">Close</button>
+            </div>
+        </div>
+        );
     }
 }

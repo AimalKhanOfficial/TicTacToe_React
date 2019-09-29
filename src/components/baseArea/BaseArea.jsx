@@ -57,14 +57,16 @@ export default class BaseArea extends Component {
     }
 
     undoMove(){
-        let allMoves = this.state.filledBoxes;
-        if(allMoves.length > 0){
-            allMoves.pop();
-            this.setState({
+        if(!this.state.isGameFinished){
+            let allMoves = this.state.filledBoxes;
+            if(allMoves.length > 0){
+              allMoves.pop();
+              this.setState({
                 playerTurnFlag: !this.state.playerTurnFlag,
                 filledBoxes: allMoves
-            });
-        }
+              });
+            }
+          }
     }
 
     boxClicked(cellId) {

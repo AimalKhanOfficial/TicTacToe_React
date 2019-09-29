@@ -5,7 +5,7 @@ export default class PopUp extends Component {
     render(){
       return (
         <div className='popup_body' id='popup_container' style={{display: this.props.isVisible ? 'block' : 'none'}}>
-            <img className='expressionGifs' alt='Image expressions..' id='' src={this.props.imageType}/>
+            <img className='expressionGifs' alt='Image expressions..' id='expression_image' src={this.props.imageType}/>
             <div>
               {this.props.body}
             </div>

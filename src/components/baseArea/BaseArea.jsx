@@ -93,7 +93,7 @@ export default class BaseArea extends Component {
     }
 
     undoMove(){
-        if(!this.state.isGameFinished && !this.state.isGameTied){
+        if(!this.state.isPopUpVisible && !this.state.isGameFinished && !this.state.isGameTied){
             let allMoves = this.state.filledBoxes;
             if(allMoves.length > 0){
               allMoves.pop();

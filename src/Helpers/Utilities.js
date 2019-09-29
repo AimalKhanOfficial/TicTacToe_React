@@ -1,4 +1,4 @@
-export default function checkResult(allMovesParam, playerParam, winningPatterns){
+export function checkResult(allMovesParam, playerParam, winningPatterns){
     if(!allMovesParam || !winningPatterns){
         return false;
     }
@@ -22,4 +22,21 @@ export default function checkResult(allMovesParam, playerParam, winningPatterns)
         }
     });
     return resultCalculated ? true : false
+}
+
+
+export function generateTestData(numberOfObjectsRequired){
+    if(!numberOfObjectsRequired){
+        return [];
+    }
+    else {
+        let objectsArr = [];
+        for(let i = 0; i < numberOfObjectsRequired; i++) {
+            objectsArr.push({
+                cellId: 12,
+                playerFlag: true
+            });
+        }
+        return objectsArr;
+    }
 }

@@ -1,7 +1,7 @@
 import "./BaseArea.css";
 import React, {Component} from "react";
 import ClickableCell from "../clickableCell/ClickableCell";
-import checkResult from "../../Helpers/Utilities";
+import { checkResult } from "../../Helpers/Utilities";
 
 const initialState = { 
     filledBoxes: [],

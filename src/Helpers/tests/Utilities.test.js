@@ -1,4 +1,4 @@
-import checkResult from '../Utilities';
+import { checkResult } from '../Utilities';
 import Constants from '../Constants';
 
 it("passing valid winning patterns and playerMoves to checkResult method should return true", () => {

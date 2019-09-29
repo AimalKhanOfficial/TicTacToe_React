@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import BaseArea from './BaseArea';
 import '../../../EnzymeSetup'
 import Constants from '../../Helpers/Constants';
+import { generateTestData } from '../../Helpers/Utilities';
 
 it('Base Area should have some text', () => {
     let baseAreaWrapper = shallow(<BaseArea baseAreaCells={[[1]]}/>);
@@ -57,10 +58,7 @@ describe('Base Area wrapper to check state for game status i.e. finished/tied et
     it('When isGameFinished attribute is set to true, the undoMove button should not let user undo moves.', () => {
         baseAreaWrapper.instance().setState({
             isGameFinished: true,
-            filledBoxes: [{
-                cellId: 11,
-                playerFlag: true
-            }]
+            filledBoxes: generateTestData(1)
         });
         let filledBoxesCount = baseAreaWrapper.instance().state.filledBoxes.length;
         baseAreaWrapper.instance().undoMove();
@@ -79,13 +77,29 @@ describe('Base Area wrapper to check state for game status i.e. finished/tied et
     it('When isGameFinished attribute is set to false and an already populated box is clicked, no entries should be added to filledBoxes.', () => {
         baseAreaWrapper.instance().setState({
             isGameFinished: false,
-            filledBoxes: [{
-                cellId: 12,
-                playerFlag: true
-            }]
+            filledBoxes: generateTestData(1)
         });
         let filledBoxesCount = baseAreaWrapper.instance().state.filledBoxes.length;
         baseAreaWrapper.instance().boxClicked(12);
         expect(filledBoxesCount).toBe(baseAreaWrapper.instance().state.filledBoxes.length);
+    });
+
+    it('When isGameFinished attribute is set to false and 9 checkboxes are filled with no result, the game should be tied.', () => {
+        baseAreaWrapper.instance().setState({
+            isGameFinished: false,
+            filledBoxes: generateTestData(8)
+        });
+        baseAreaWrapper.instance().boxClicked(13);
+        expect(baseAreaWrapper.instance().state.isGameTied).toBe(true);
+    });
+
+    it('When isGameFinished attribute is set to false and 9 checkboxes are filled with no result, the game should be tied.', () => {
+        baseAreaWrapper.instance().setState({
+            isGameFinished: false,
+            filledBoxes: generateTestData(8)
+        });
+        let tiesCount = baseAreaWrapper.instance().state.ties;
+        baseAreaWrapper.instance().boxClicked(13);
+        expect(tiesCount + 1).toBe(baseAreaWrapper.instance().state.ties);
     });
 });

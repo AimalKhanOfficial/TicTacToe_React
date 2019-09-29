@@ -2,6 +2,7 @@ import "./BaseArea.css";
 import React, {Component} from "react";
 import ClickableCell from "../clickableCell/ClickableCell";
 import { checkResult } from "../../Helpers/Utilities";
+import Stats from "../stats/Stats";
 
 const initialState = { 
     filledBoxes: [],
@@ -46,6 +47,7 @@ export default class BaseArea extends Component {
                         </span>
                     )
                 }
+                <Stats playerOneWins={this.state.playerOneWins} playerTwoWins={this.state.playerTwoWins} ties={this.state.ties}/>
             </div>
         );
     }

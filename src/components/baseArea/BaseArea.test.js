@@ -5,6 +5,7 @@ import '../../../EnzymeSetup'
 import Constants from '../../Helpers/Constants';
 import { generateTestData } from '../../Helpers/Utilities';
 import Stats from '../stats/Stats';
+import PopUp from '../customPopup/PopUp';
 
 it('Base Area should have some text', () => {
     let baseAreaWrapper = shallow(<BaseArea baseAreaCells={[[1]]}/>);
@@ -46,6 +47,10 @@ describe('Base Area wrapper with same Arrange phase', () => {
 
     it('Should Contain a Stats Component', () => {
         expect(baseAreaWrapper.containsMatchingElement(<Stats/>)).toEqual(true);
+    })
+
+    it('Should Contain a PopUp Component', () => {
+        expect(baseAreaWrapper.containsMatchingElement(<PopUp/>)).toEqual(true);
     })
 });
 

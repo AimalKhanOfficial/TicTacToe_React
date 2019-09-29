@@ -4,6 +4,7 @@ import BaseArea from './BaseArea';
 import '../../../EnzymeSetup'
 import Constants from '../../Helpers/Constants';
 import { generateTestData } from '../../Helpers/Utilities';
+import Stats from '../stats/Stats';
 
 it('Base Area should have some text', () => {
     let baseAreaWrapper = shallow(<BaseArea baseAreaCells={[[1]]}/>);
@@ -41,6 +42,10 @@ describe('Base Area wrapper with same Arrange phase', () => {
     it('The state should be set to default on the Start Over img click event', () => {
         baseAreaWrapper.find('#gameDefaultsId').simulate('click');
         expect(baseAreaWrapper.instance().state.filledBoxes.length).toBe(0);
+    })
+
+    it('Should Contain a Stats Component', () => {
+        expect(baseAreaWrapper.containsMatchingElement(<Stats/>)).toEqual(true);
     })
 });
 

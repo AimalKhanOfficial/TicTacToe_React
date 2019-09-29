@@ -12,7 +12,7 @@ export default class ClickableCell extends Component {
         let boxesToSearch = this.props.boxesToFill ? this.props.boxesToFill : [];
         let wasBoxFilled = boxesToSearch.find(elem => elem.cellId === this.props.cellId ? elem : undefined);
         return (
-            <button onClick={this.onCellClicked} className="cell_layout">
+            <button onClick={this.onCellClicked} className="cell_layout" style={wasBoxFilled !== undefined ? !wasBoxFilled.playerFlag ? {border: '2px solid #C1F215'} : {border: '2px solid #FFA500'} : {}}>
                 {wasBoxFilled !== undefined ? !wasBoxFilled.playerFlag ? "X" : "O" : ""}
             </button>
         );

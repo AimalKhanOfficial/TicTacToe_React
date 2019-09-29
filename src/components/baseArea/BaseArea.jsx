@@ -27,6 +27,7 @@ export default class BaseArea extends Component {
         this.undoMove = this.undoMove.bind(this);
         this.setGameDefaults = this.setGameDefaults.bind(this);
         this.closePopUp = this.closePopUp.bind(this);
+        this.displayPopUp = this.displayPopUp.bind(this);
     }
 
     render() {
@@ -56,6 +57,9 @@ export default class BaseArea extends Component {
                 <Stats playerOneWins={this.state.playerOneWins} playerTwoWins={this.state.playerTwoWins} ties={this.state.ties}/>
             </div>
         );
+    }
+
+    displayPopUp(bodyText, popUpImage) {
     }
 
     closePopUp() {

@@ -52,6 +52,11 @@ describe('Base Area wrapper with same Arrange phase', () => {
     it('Should Contain a PopUp Component', () => {
         expect(baseAreaWrapper.containsMatchingElement(<PopUp/>)).toEqual(true);
     })
+
+    it('Should Contain a PopUp Component', () => {
+        baseAreaWrapper.instance().displayPopUp("", "");
+        expect(baseAreaWrapper.instance().state.isPopUpVisible).toEqual(true);
+    })
 });
 
 describe('Base Area wrapper to check state for game status i.e. finished/tied etc.', () => {

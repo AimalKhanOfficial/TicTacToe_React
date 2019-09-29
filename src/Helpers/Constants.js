@@ -10,9 +10,9 @@ export default class Constants {
     ];
 
     static emojiGifTypes = {
-        Hurrah: "/imgs/hurrah.gif",
-        GameTied: "/imgs/tied.gif",
-        ChooseAnotherBox: "/imgs/thinking.gif",
-        GameRefreshed: "/imgs/Whistle.gif"
+        Hurrah: "./imgs/hurrah.gif",
+        GameTied: "./imgs/tied.gif",
+        ChooseAnotherBox: "./imgs/thinking.gif",
+        GameRefreshed: "./imgs/Whistle.gif"
     }
 }

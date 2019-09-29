@@ -72,25 +72,30 @@ export default class BaseArea extends Component {
 
     boxClicked(cellId) {
         let filledBoxes = this.state.filledBoxes;
-        filledBoxes.push({
-            cellId: cellId,
-            playerFlag: this.state.playerTurnFlag
-        });
-        this.setState({
-            filledBoxes: filledBoxes,
-            isGameFinished: checkResult(this.state.filledBoxes, this.state.playerTurnFlag, this.props.winningPatterns)
-          }, () => {
-            if(this.state.isGameFinished) {
-                this.setState({
-                    playerOneWins: !this.state.playerTurnFlag ? (this.state.playerOneWins + 1) : this.state.playerOneWins, 
-                    playerTwoWins: this.state.playerTurnFlag ? (this.state.playerTwoWins + 1) : this.state.playerTwoWins 
-                });
-            }
-            else {
-              this.setState({
-                playerTurnFlag: !this.state.playerTurnFlag,
-              });
-            }
-        });
+        if (this.state.isGameFinished) {
+            return false;
+        }
+        else {
+            filledBoxes.push({
+                cellId: cellId,
+                playerFlag: this.state.playerTurnFlag
+            });
+            this.setState({
+                filledBoxes: filledBoxes,
+                isGameFinished: checkResult(this.state.filledBoxes, this.state.playerTurnFlag, this.props.winningPatterns)
+              }, () => {
+                if(this.state.isGameFinished) {
+                    this.setState({
+                        playerOneWins: !this.state.playerTurnFlag ? (this.state.playerOneWins + 1) : this.state.playerOneWins, 
+                        playerTwoWins: this.state.playerTurnFlag ? (this.state.playerTwoWins + 1) : this.state.playerTwoWins 
+                    });
+                }
+                else {
+                  this.setState({
+                    playerTurnFlag: !this.state.playerTurnFlag,
+                  });
+                }
+            });
+        }
     }
 }

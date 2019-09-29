@@ -4,6 +4,7 @@ import ClickableCell from "../clickableCell/ClickableCell";
 import { checkResult } from "../../Helpers/Utilities";
 import Stats from "../stats/Stats";
 import PopUp from "../customPopup/PopUp";
+import Constants from '../../Helpers/Constants';
 
 const initialState = { 
     filledBoxes: [],
@@ -101,9 +102,11 @@ export default class BaseArea extends Component {
     boxClicked(cellId) {
         let filledBoxes = this.state.filledBoxes;
         if (this.state.isGameFinished) {
+            this.displayPopUp("Game over. "+ (this.state.playerTurnFlag ? "Player 2" : "Player 1") + " won! Want a rematch? Click on StartOver button", Constants.emojiGifTypes.GameRefreshed);
             return false;
         }
         else if(filledBoxes.find(a => a.cellId === cellId)){
+            this.displayPopUp("This box is already filled, pick another one!", Constants.emojiGifTypes.ChooseAnotherBox);
             return false;
         }
         else {
@@ -116,6 +119,7 @@ export default class BaseArea extends Component {
                 isGameFinished: checkResult(this.state.filledBoxes, this.state.playerTurnFlag, this.props.winningPatterns)
               }, () => {
                 if(this.state.isGameFinished) {
+                    this.displayPopUp("Hurraah.. "+ (this.state.playerTurnFlag ? "Player 2" : "Player 1") + " won!!", Constants.emojiGifTypes.Hurrah);
                     this.setState({
                         playerOneWins: !this.state.playerTurnFlag ? (this.state.playerOneWins + 1) : this.state.playerOneWins, 
                         playerTwoWins: this.state.playerTurnFlag ? (this.state.playerTwoWins + 1) : this.state.playerTwoWins 
@@ -123,6 +127,7 @@ export default class BaseArea extends Component {
                 }
                 else {
                     if(this.state.filledBoxes.length === 9) {
+                        this.displayPopUp("Game's tied! Want a rematch? Click on StartOver button", Constants.emojiGifTypes.GameTied);
                         this.setState({
 							isGameTied: true,
 							ties: this.state.ties + 1

@@ -1,6 +1,7 @@
 import "./BaseArea.css";
 import React, {Component} from "react";
 import ClickableCell from "../clickableCell/ClickableCell";
+import checkResult from "../../Helpers/Utilities";
 
 const initialState = { 
     filledBoxes: [],
@@ -72,5 +73,6 @@ export default class BaseArea extends Component {
             filledBoxes: filledBoxes,
             playerTurnFlag: !this.state.playerTurnFlag
         });
+        checkResult(filledBoxes, this.state.playerTurnFlag, this.props.winningPatterns);
     }
 }

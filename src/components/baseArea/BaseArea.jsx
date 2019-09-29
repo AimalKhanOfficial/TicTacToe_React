@@ -6,6 +6,10 @@ import checkResult from "../../Helpers/Utilities";
 const initialState = { 
     filledBoxes: [],
     playerTurnFlag: false, 
+    isGameFinished: false,
+    playerOneWins: 0, 
+    playerTwoWins: 0, 
+    ties: 0
 }
 
 export default class BaseArea extends Component {

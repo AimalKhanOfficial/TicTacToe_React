@@ -102,4 +102,22 @@ describe('Base Area wrapper to check state for game status i.e. finished/tied et
         baseAreaWrapper.instance().boxClicked(13);
         expect(tiesCount + 1).toBe(baseAreaWrapper.instance().state.ties);
     });
+
+    it('When the game is tied, the undoMove button should not let user undo moves.', () => {
+        baseAreaWrapper.instance().setState({
+            isGameTied: true,
+            filledBoxes: generateTestData(8)
+        });
+        let filledBoxesCount = baseAreaWrapper.instance().state.filledBoxes.length;
+        baseAreaWrapper.instance().undoMove();
+        expect(filledBoxesCount).toBe(baseAreaWrapper.instance().state.filledBoxes.length);
+    });
+
+    it('When the game reset button is clicked, the setGameDefaults button should reset isGameTiedAttr to false', () => {
+        baseAreaWrapper.instance().setState({
+            isGameTied: true
+        });
+        baseAreaWrapper.instance().setGameDefaults();
+        expect(baseAreaWrapper.instance().state.isGameTied).toBe(false);
+    });
 });

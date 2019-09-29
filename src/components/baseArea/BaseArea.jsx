@@ -95,9 +95,15 @@ export default class BaseArea extends Component {
                     });
                 }
                 else {
-                  this.setState({
-                    playerTurnFlag: !this.state.playerTurnFlag,
-                  });
+                    if(this.state.filledBoxes.length === 9) {
+                        this.setState({
+							isGameTied: true,
+							ties: this.state.ties + 1
+						});
+                    }
+                    this.setState({
+                      playerTurnFlag: !this.state.playerTurnFlag,
+                    });
                 }
             });
         }

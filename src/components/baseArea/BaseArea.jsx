@@ -96,7 +96,7 @@ export default class BaseArea extends Component {
                 filledBoxes: allMoves
               });
             }
-          }
+        }
     }
 
     boxClicked(cellId) {

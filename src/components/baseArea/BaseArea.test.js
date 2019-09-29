@@ -135,4 +135,12 @@ describe('Base Area wrapper to check state for game status i.e. finished/tied et
         baseAreaWrapper.instance().setGameDefaults();
         expect(baseAreaWrapper.instance().state.isGameTied).toBe(false);
     });
+
+    it('When the game is tied and a box is clicked, the box clicked event should not let user populate that field.', () => {
+        baseAreaWrapper.instance().setState({
+            isGameFinished: false,
+            isGameTied: true
+        });
+        expect(baseAreaWrapper.instance().boxClicked(13)).toBe(false);
+    });
 });

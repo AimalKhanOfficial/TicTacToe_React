@@ -105,6 +105,10 @@ export default class BaseArea extends Component {
             this.displayPopUp("Game over. "+ (this.state.playerTurnFlag ? "Player 2" : "Player 1") + " won! Want a rematch? Click on StartOver button", Constants.emojiGifTypes.GameRefreshed);
             return false;
         }
+        else if (this.state.isGameTied) {
+            this.displayPopUp("Game's tied! Want a rematch? Click on StartOver button", Constants.emojiGifTypes.GameTied);
+            return false;
+        }
         else if(filledBoxes.find(a => a.cellId === cellId)){
             this.displayPopUp("This box is already filled, pick another one!", Constants.emojiGifTypes.ChooseAnotherBox);
             return false;

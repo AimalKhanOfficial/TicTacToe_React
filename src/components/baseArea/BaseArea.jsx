@@ -60,6 +60,11 @@ export default class BaseArea extends Component {
     }
 
     displayPopUp(bodyText, popUpImage) {
+        this.setState({
+            isPopUpVisible: true,
+            popUpImage: popUpImage,
+            popUpBodyText: bodyText
+        });
     }
 
     closePopUp() {

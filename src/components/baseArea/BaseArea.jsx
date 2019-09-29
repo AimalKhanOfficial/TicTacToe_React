@@ -75,6 +75,9 @@ export default class BaseArea extends Component {
         if (this.state.isGameFinished) {
             return false;
         }
+        else if(filledBoxes.find(a => a.cellId === cellId)){
+            return false;
+        }
         else {
             filledBoxes.push({
                 cellId: cellId,

@@ -143,4 +143,14 @@ describe('Base Area wrapper to check state for game status i.e. finished/tied et
         });
         expect(baseAreaWrapper.instance().boxClicked(13)).toBe(false);
     });
+
+    it('When the popUp is visible and user clicks on undoMove button, game should not let user undo moves.', () => {
+        baseAreaWrapper.instance().setState({
+            isPopUpVisible: true,
+            filledBoxes: generateTestData(8)
+        });
+        let filledBoxesCount = baseAreaWrapper.instance().state.filledBoxes.length;
+        baseAreaWrapper.instance().undoMove();
+        expect(filledBoxesCount).toBe(baseAreaWrapper.instance().state.filledBoxes.length);
+    });
 });

@@ -3,12 +3,16 @@ import React, {Component} from "react";
 import ClickableCell from "../clickableCell/ClickableCell";
 import { checkResult } from "../../Helpers/Utilities";
 import Stats from "../stats/Stats";
+import PopUp from "../customPopup/PopUp";
 
 const initialState = { 
     filledBoxes: [],
     playerTurnFlag: false, 
     isGameFinished: false,
     isGameTied: false,
+    isPopUpVisible: false,
+    popUpBodyText: "",
+    popUpImage: "",
     playerOneWins: 0, 
     playerTwoWins: 0, 
     ties: 0
@@ -22,6 +26,7 @@ export default class BaseArea extends Component {
         this.boxClicked = this.boxClicked.bind(this);
         this.undoMove = this.undoMove.bind(this);
         this.setGameDefaults = this.setGameDefaults.bind(this);
+        this.closePopUp = this.closePopUp.bind(this);
     }
 
     render() {
@@ -33,6 +38,7 @@ export default class BaseArea extends Component {
                     <img src="/imgs/restart.png" alt="avatar" id="gameDefaultsId" className="avatar" title="Start Over" onClick={this.setGameDefaults}/>
                 </div>
                 <br/>
+                <PopUp imageType={this.state.popUpImage} isVisible={this.state.isPopUpVisible} closePopUp={this.closePopUp} body={this.state.popUpBodyText}/>
                 <h3>
                     {!this.state.isGameFinished ? (!this.state.playerTurnFlag ? "Player 1 to play.." : "Player 2 to play..")  : "Game Over!"}
                 </h3>
@@ -52,12 +58,21 @@ export default class BaseArea extends Component {
         );
     }
 
+    closePopUp() {
+        this.setState({
+          isPopUpVisible: false
+        });
+    }
+
     setGameDefaults() {
         this.setState({
             filledBoxes: [],
             playerTurnFlag: false, 
             isGameFinished: false,
-            isGameTied: false
+            isGameTied: false,
+            isPopUpVisible: false,
+            popUpBodyText: "",
+            popUpImage: "",
         });
     }
 
